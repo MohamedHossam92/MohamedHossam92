@@ -23,7 +23,7 @@ class FlutterLocalNotificationHelper{
     const IOSNotificationDetails iosNotificationDetails = IOSNotificationDetails(presentSound: true,presentAlert: true,presentBadge: true, sound: 'pray.mp3');
     const NotificationDetails platformChannelSpecifics = NotificationDetails(android: androidPlatformChannelSpecifics,iOS: iosNotificationDetails);
     try{
-      await _flutterLocalNotificationsPlugin.periodicallyShow(0, title, body, RepeatInterval.everyMinute, platformChannelSpecifics, androidAllowWhileIdle: true);
+      await _flutterLocalNotificationsPlugin.periodicallyShow(0, title, body, RepeatInterval.daily, platformChannelSpecifics, androidAllowWhileIdle: true);
       // await _flutterLocalNotificationsPlugin.show(
       //     0, title, body, platformChannelSpecifics,
       //     payload: 'item x').then((value) {
