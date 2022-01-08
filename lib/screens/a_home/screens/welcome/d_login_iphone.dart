@@ -147,17 +147,18 @@ class _LoginIPhoneState extends State<LoginIPhone> {
                             } else {
                               int phoneString =
                                   int.parse(phone.substring(3, phone.length));
-                              String data = ((phoneString / 92).round())
-                                  .toString()
-                                  .substring(0, 6);
+                              String data =
+                                  ((phoneString / 92).round()).toString();
+
+                              if (data.length > 6) {
+                                data.substring(0, 6);
+                              }
 
                               code = int.parse(data);
                               this.setState(() {});
-                              print(cubit.isLoginIOS);
 
                               if (password == code) {
                                 cubit.loginIOSChange();
-                                print(cubit.isLoginIOS);
                               }
                             }
                           }

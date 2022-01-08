@@ -37,6 +37,10 @@ class Country extends StatelessWidget {
                       child: GestureDetector(
                         onTap: () {
                           cubit.countryGroupValChange(i);
+                          if (i == 1) {
+                            cubit.userStateChange(0, true);
+                            cubit.saveUserType(0);
+                          }
                         },
                         child: Container(
                           decoration: BoxDecoration(
@@ -63,6 +67,10 @@ class Country extends StatelessWidget {
                                     groupValue: cubit.countryGroupVal,
                                     onChanged: (val) {
                                       cubit.countryGroupValChange(val);
+                                      if (i == 1) {
+                                        cubit.userStateChange(0, true);
+                                        cubit.saveUserType(0);
+                                      }
                                     }),
                                 BTextB4(country[i]),
                               ],

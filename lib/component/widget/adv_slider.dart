@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:the_smart_workshop/component/const/padding.dart';
-import 'package:the_smart_workshop/component/const/texts.dart';
 import 'package:the_smart_workshop/component/const/titles.dart';
 import 'package:the_smart_workshop/component/widget/rate_us.dart';
 import 'package:the_smart_workshop/screens/a_home/screens/call_us/call_us.dart';
@@ -18,19 +17,19 @@ class DCarouselSlider extends StatelessWidget {
 
     return Column(
       children: [
-        Container(
-          width: double.infinity,
-          child: DPadding(
-            child: Card(
-              color: Colors.black,
-              child:
-                  Center(child: DPadding(child: WTextB5('عروض الورشة الذكية'))),
-            ),
-          ),
-        ),
+        // Container(
+        //   width: double.infinity,
+        //   child: DPadding(
+        //     child: Card(
+        //       color: Colors.black,
+        //       child:
+        //           Center(child: DPadding(child: WTextB5('عروض الورشة الذكية'))),
+        //     ),
+        //   ),
+        // ),
         Wrap(
             alignment: WrapAlignment.spaceEvenly,
-            children: List.generate(6, (i) {
+            children: List.generate(2, (i) {
               List<Color> color = [
                 Colors.redAccent,
                 Colors.purple,
@@ -84,7 +83,7 @@ class DCarouselSlider extends StatelessWidget {
                           val: .005,
                           child: Image.asset(
                             'assets/images/new/00$i.png',
-                            width: size.width * .28,
+                            width: size.width * .44,
                           ),
                         ),
                       ),
