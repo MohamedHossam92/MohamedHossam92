@@ -43,6 +43,13 @@ List<GuidData> guidList = [
       type: 'وكيل شيش حصيرة',
       color: Colors.amber),
   GuidData(
+      name: 'الشرقاوي',
+      phone: '01063070485',
+      place: 'الدلتا',
+      logo: 'sharq.jpg',
+      type: 'وكيل pvc - شركة وينتك',
+      color: Colors.white),
+  GuidData(
       name: ' للرخام الصناعي',
       phone: '01000885476',
       place: 'المنصورة',

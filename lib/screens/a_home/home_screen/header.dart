@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,47 +41,47 @@ class HomeHeader extends StatelessWidget {
                   MyDrawer(Setting())
                 ],
               ),
-              cubit.getUserTypePrefs == 0
-                  ? Container(
-                      height: size.height * .05,
-                      width: size.width * .9,
-                      color: Colors.yellow.shade100,
-                      child: Center(
-                        child: CarouselSlider(
-                            options: CarouselOptions(
-                              height: size.height * .2,
-                              initialPage: 0,
-                              autoPlay: true,
-                              autoPlayInterval: Duration(seconds: 4),
-                              autoPlayAnimationDuration:
-                                  Duration(milliseconds: 800),
-                              autoPlayCurve: Curves.fastOutSlowIn,
-                              enlargeCenterPage: true,
-                              onPageChanged: (i, change) {},
-                              scrollDirection: Axis.vertical,
-                            ),
-                            items: [
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.check_circle,
-                                  ),
-                                  BTextB4(
-                                      '  أسعار الألومنيوم اليوم $dateFormat'),
-                                ],
-                              ),
-                              BTextB4('فضي : من 74 جنية لـ 78 جنية'),
-                              BTextB4('الشريف علي حسن : 87.35 جنية'),
-                              BTextB4('ألوميل : 114.4 جنية'),
-                              BTextB4('ڤالڤ : 99.5 جنية'),
-                              BTextB4(
-                                  'بورصة لندن لمعدن الألومنيوم : 3041.0 دولار للطن'),
-                            ]),
-                      ),
-                    )
-                  : DPadding(
-                      child:
-                          BTextB4('أهلاً وسهلاً بك في تطبيق #الورشة_الذكية')),
+              // cubit.getUserTypePrefs == 0
+              //     ? Container(
+              //         height: size.height * .05,
+              //         width: size.width * .9,
+              //         color: Colors.yellow.shade100,
+              //         child: Center(
+              //           child: CarouselSlider(
+              //               options: CarouselOptions(
+              //                 height: size.height * .2,
+              //                 initialPage: 0,
+              //                 autoPlay: true,
+              //                 autoPlayInterval: Duration(seconds: 4),
+              //                 autoPlayAnimationDuration:
+              //                     Duration(milliseconds: 800),
+              //                 autoPlayCurve: Curves.fastOutSlowIn,
+              //                 enlargeCenterPage: true,
+              //                 onPageChanged: (i, change) {},
+              //                 scrollDirection: Axis.vertical,
+              //               ),
+              //               items: [
+              //                 Row(
+              //                   children: [
+              //                     Icon(
+              //                       Icons.check_circle,
+              //                     ),
+              //                     BTextB4(
+              //                         '  أسعار الألومنيوم اليوم $dateFormat'),
+              //                   ],
+              //                 ),
+              //                 BTextB4('فضي : من 74 جنية لـ 78 جنية'),
+              //                 BTextB4('الشريف علي حسن : 87.35 جنية'),
+              //                 BTextB4('ألوميل : 114.4 جنية'),
+              //                 BTextB4('ڤالڤ : 99.5 جنية'),
+              //                 BTextB4(
+              //                     'بورصة لندن لمعدن الألومنيوم : 3041.0 دولار للطن'),
+              //               ]),
+              //         ),
+              //       )
+              //     : DPadding(
+              //         child:
+              //             BTextB4('أهلاً وسهلاً بك في تطبيق #الورشة_الذكية')),
             ],
           ));
         });

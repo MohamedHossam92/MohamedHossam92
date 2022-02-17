@@ -48,7 +48,7 @@ class MyHomePage extends StatelessWidget {
                                       Container(
                                         child: DPadding(
                                           child: Card(
-                                            color: Colors.blue,
+                                            color: cLogoColorW,
                                             child: Center(
                                                 child: DPadding(
                                                     child: WTextB4(
