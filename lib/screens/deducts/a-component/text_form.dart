@@ -39,7 +39,7 @@ class AddSize extends StatelessWidget {
                               labelText: dataList[i],
                               suffix: Text('سم'),
                             ),
-                            keyboardType: TextInputType.phone,
+                            keyboardType: TextInputType.number,
                             inputFormatters: [
                               FilteringTextInputFormatter.allow(
                                   RegExp('[0-9.]')),

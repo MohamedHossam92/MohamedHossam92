@@ -64,6 +64,13 @@ List<GuidData> guidList = [
       type: 'ألومنيوم واكسسوار',
       color: Colors.yellow),
   GuidData(
+      name: 'كوهية شتر باور',
+      phone: '01554056412',
+      place: 'السلام - الساحل الشمالي',
+      logo: 'qushutter.jpg',
+      type: 'شيش حصيرة',
+      color: Colors.yellow),
+  GuidData(
       name: 'واجهات',
       phone: '01099399187',
       place: 'مدينة نصر',

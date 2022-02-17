@@ -1,9 +1,15 @@
+import 'dart:io';
+
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:the_smart_workshop/component/const/colors.dart';
 import 'package:the_smart_workshop/component/const/padding.dart';
 import 'package:the_smart_workshop/component/const/texts.dart';
 import 'package:the_smart_workshop/component/widget/bottom_navigation_bar.dart';
+import 'package:the_smart_workshop/screens/a_home/cubit/cubit.dart';
+import 'package:the_smart_workshop/screens/a_home/cubit/state.dart';
 import 'package:the_smart_workshop/screens/a_home/screens/settings/a_settings.dart';
 import 'package:the_smart_workshop/screens/deducts/a-component/cubit/cubit.dart';
 import 'package:the_smart_workshop/screens/deducts/a-component/cubit/state.dart';
@@ -14,65 +20,72 @@ class HomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String dateFormat = DateFormat('d-M-y ').format(date);
     Size size = MediaQuery.of(context).size;
-    return Container(
-        child: Column(
-      children: [
-        Row(
-          children: [
-            DPadding(
-              child: Image.asset(
-                'assets/images/logo.png',
-                height: size.height * .1,
+    return BlocConsumer<HomeCubit, HomeState>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          HomeCubit cubit = BlocProvider.of(context);
+          return Container(
+              child: Column(
+            children: [
+              Row(
+                children: [
+                  DPadding(
+                    child: Image.asset(
+                      'assets/images/logo.png',
+                      height: size.height * .1,
+                    ),
+                  ),
+                  BTextB8('الورشة الذكية'),
+                  Spacer(),
+                  MyDrawer(Setting())
+                ],
               ),
-            ),
-            BTextB8('الورشة الذكية'),
-            Spacer(),
-            MyDrawer(Setting())
-          ],
-        ),
-        // cubit.getUserTypePrefs == 0
-        //     ? Container(
-        //         height: size.height * .05,
-        //         width: size.width * .9,
-        //         child: Center(
-        //           child: CarouselSlider(
-        //               options: CarouselOptions(
-        //                 height: size.height * .2,
-        //                 initialPage: 0,
-        //                 autoPlay: true,
-        //                 autoPlayInterval: Duration(seconds: 4),
-        //                 autoPlayAnimationDuration:
-        //                     Duration(milliseconds: 800),
-        //                 autoPlayCurve: Curves.fastOutSlowIn,
-        //                 enlargeCenterPage: true,
-        //                 onPageChanged: (i, change) {},
-        //                 scrollDirection: Axis.vertical,
-        //               ),
-        //               items: [
-        //                 Row(
-        //                   children: [
-        //                     Icon(
-        //                       Icons.check_circle,
-        //                     ),
-        //                     BTextB4(
-        //                         '  أسعار الألومنيوم اليوم $dateFormat'),
-        //                   ],
-        //                 ),
-        //                 BTextB4('فضي : من 68 جنية لـ 73 جنية'),
-        //                 BTextB4('الشريف علي حسن : 81.8 جنية'),
-        //                 BTextB4('ألوميل : 107 جنية'),
-        //                 BTextB4('ڤالڤ : 90 جنية'),
-        //                 BTextB4(
-        //                     'بورصة لندن لمعدن الألومنيوم : 2602.5 دولار للطن'),
-        //               ]),
-        //         ),
-        //       )
-        //     : DPadding(
-        //         child: BTextB4(
-        //             'أهلاً وسهلاً بك في تطبيق #الورشة_الذكية')),
-      ],
-    ));
+              cubit.getUserTypePrefs == 0
+                  ? Container(
+                      height: size.height * .05,
+                      width: size.width * .9,
+                      color: Colors.yellow.shade100,
+                      child: Center(
+                        child: CarouselSlider(
+                            options: CarouselOptions(
+                              height: size.height * .2,
+                              initialPage: 0,
+                              autoPlay: true,
+                              autoPlayInterval: Duration(seconds: 4),
+                              autoPlayAnimationDuration:
+                                  Duration(milliseconds: 800),
+                              autoPlayCurve: Curves.fastOutSlowIn,
+                              enlargeCenterPage: true,
+                              onPageChanged: (i, change) {},
+                              scrollDirection: Axis.vertical,
+                            ),
+                            items: [
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.check_circle,
+                                  ),
+                                  BTextB4(
+                                      '  أسعار الألومنيوم اليوم $dateFormat'),
+                                ],
+                              ),
+                              BTextB4('فضي : من 74 جنية لـ 78 جنية'),
+                              BTextB4('الشريف علي حسن : 87.35 جنية'),
+                              BTextB4('ألوميل : 114.4 جنية'),
+                              BTextB4('ڤالڤ : 99.5 جنية'),
+                              BTextB4(
+                                  'بورصة لندن لمعدن الألومنيوم : 3041.0 دولار للطن'),
+                            ]),
+                      ),
+                    )
+                  : DPadding(
+                      child:
+                          BTextB4('أهلاً وسهلاً بك في تطبيق #الورشة_الذكية')),
+            ],
+          ));
+        });
   }
 }
 
@@ -218,6 +231,17 @@ class MyDrawer extends StatelessWidget {
                   ),
                   constraints: BoxConstraints(maxWidth: 30),
                 ),
+                if (Platform.isIOS)
+                  IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(
+                      Icons.arrow_forward,
+                      color: Colors.white,
+                    ),
+                    constraints: BoxConstraints(maxWidth: 30),
+                  ),
               ],
             ),
           );

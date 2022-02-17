@@ -4,6 +4,7 @@ import 'package:the_smart_workshop/component/const/colors.dart';
 import 'package:the_smart_workshop/component/const/padding.dart';
 import 'package:the_smart_workshop/component/const/texts.dart';
 import 'package:the_smart_workshop/component/const/titles.dart';
+import 'package:the_smart_workshop/component/widget/button.dart';
 import 'package:the_smart_workshop/component/widget/table.dart';
 import 'package:the_smart_workshop/screens/deducts/a-component/cubit/cubit.dart';
 import 'package:the_smart_workshop/screens/deducts/a-component/cubit/state.dart';
@@ -120,10 +121,7 @@ class ResultHome extends StatelessWidget {
           ),
         GestureDetector(
             onTap: () async {
-              await launch(whatsApp(
-                  phone: '01094538013',
-                  message:
-                      'السلام عليكم ورحمة الله وبركاته \n كنت حابب استفسر عن الخامة والأسعار ؟ وشكراً لكم ...'));
+              await launch(whatsApp(phone: '01020608160', message: 'لصق شريط'));
             },
             child: Image.asset('assets/images/new/hpl.png'))
       ],
@@ -203,7 +201,11 @@ class ResultHomeContent extends StatelessWidget {
                           child: Image.asset(
                             'assets/images/logo.png',
                             width: size.width * .15,
-                          ))
+                          )),
+                      Positioned(
+                          bottom: size.height * .01,
+                          right: size.width * .02,
+                          child: ExitButton())
                     ],
                   ),
                 ),

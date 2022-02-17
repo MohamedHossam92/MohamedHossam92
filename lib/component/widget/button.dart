@@ -24,11 +24,13 @@ class ExitButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-        child: Row(
-          children: [Icon(Icons.threesixty_rounded), WTextB4('رجوع')],
-        ),
-        onPressed: () {
-          Navigator.pop(context);
-        });
+      color: Colors.black54,
+      child: Row(
+        children: [Icon(Icons.threesixty_rounded), WTextB4('رجوع')],
+      ),
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    );
   }
 }

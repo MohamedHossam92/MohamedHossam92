@@ -41,6 +41,10 @@ class _DeductHomeState extends State<DeductHome>
     return SafeArea(
         child: AppBackGround(
       child: Scaffold(
+        // appBar: AppBar(
+        //   backgroundColor: Colors.transparent,
+        //   elevation: 0,
+        // ),
         backgroundColor: Colors.transparent,
         body: Column(
           children: [

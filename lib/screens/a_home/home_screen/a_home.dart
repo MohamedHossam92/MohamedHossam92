@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:the_smart_workshop/component/const/colors.dart';
 import 'package:the_smart_workshop/component/const/padding.dart';
@@ -32,35 +34,37 @@ class MyHomePage extends StatelessWidget {
                           SizedBox(
                             height: 10,
                           ),
-                          GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => CoffeeHome()));
-                              },
-                              child: DPadding(
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      child: DPadding(
-                                        child: Card(
-                                          color: Colors.blue,
-                                          child: Center(
-                                              child: DPadding(
-                                                  child: WTextB4(
-                                                      'اضغط هنا واعزمني علي فنجان قهوة'))),
+                          if (Platform.isAndroid)
+                            GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => CoffeeHome()));
+                                },
+                                child: DPadding(
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        child: DPadding(
+                                          child: Card(
+                                            color: Colors.blue,
+                                            child: Center(
+                                                child: DPadding(
+                                                    child: WTextB4(
+                                                        'اضغط هنا واعزمني علي فنجان قهوة'))),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    Image.asset(
-                                      'assets/images/coffee.gif',
-                                      width: MediaQuery.of(context).size.width *
-                                          .2,
-                                    ),
-                                  ],
-                                ),
-                              )),
+                                      Image.asset(
+                                        'assets/images/coffee.gif',
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                .2,
+                                      ),
+                                    ],
+                                  ),
+                                )),
                           DCarouselSlider(),
                           Card(
                               color: cLogoColorW,
