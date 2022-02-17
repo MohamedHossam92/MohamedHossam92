@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:the_smart_workshop/local_notifications/notifications.dart';
 import 'package:the_smart_workshop/screens/a_home/cubit/state.dart';
 import 'package:the_smart_workshop/screens/a_home/screens/settings/a_settings.dart';
 import 'package:the_smart_workshop/screens/deducts/angles/view/corner.dart';
@@ -34,7 +37,10 @@ import 'sql/kitchen/cubit/cubit.dart';
 import 'sql/slide_windows/cubit/cubit.dart';
 import 'sql/turn_windows/cubit/cubit.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await FlutterLocalNotificationHelper.init();
+  FlutterLocalNotificationHelper.showNotification();
   runApp(TheSmartWorkshop());
 }
 
